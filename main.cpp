@@ -4,7 +4,8 @@
 // void UnaryBinary();
 // void ArthmeticOp();
 // void ifStatment();
-int ifElse();
+// int ifElse();
+// void bitwise();
 
 int main(void){
     
@@ -12,7 +13,8 @@ int main(void){
     // UnaryBinary();
     // ArthmeticOp();
     // ifStatment();
-    ifElse();
+    // ifElse();
+    // bitwise();
 
     return 0;
 }
@@ -151,3 +153,18 @@ int main(void){
     // "~" Bitwise complement
     // "<<" Shift left
     // ">>" Shift right
+
+// AND >> only 1&1 is 1 the rest is 0
+// OR >> if it is 1 ans is 1
+// XOR >> if it is same ans is 0 else ans 1
+
+// void bitwise(){
+//     int a = 12, b = 25;
+//     printf("Bitwise AND Output = %d\n",a&b);
+
+//     int x = 12, y = 25;
+//     printf("Bitwise OR Output = %d\n", x|y);
+
+//     int i = 12, j = 25;
+//     printf("Bitwise XOR Output = %d\n",x^y);
+// }
