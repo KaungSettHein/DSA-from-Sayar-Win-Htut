@@ -6,6 +6,7 @@
 // void ifStatment();
 // int ifElse();
 // void bitwise();
+void complement();
 
 int main(void){
     
@@ -15,6 +16,7 @@ int main(void){
     // ifStatment();
     // ifElse();
     // bitwise();
+    complement();
 
     return 0;
 }
@@ -168,3 +170,36 @@ int main(void){
 //     int i = 12, j = 25;
 //     printf("Bitwise XOR Output = %d\n",x^y);
 // }
+
+// "~" Bitwise complement
+// Bitwise complement can calculate to the bit level value so program can run faster and power save
+// 1's complement and 2's complement
+// 1's complement of the decimal value is change decimal to binary and toggle the bit.
+// e.g decimal 35 to binary is 00100011. Toggle that to 11011100 is the 1's complement of 35.
+// 2's complement is the to add 1 to 1's complement of number.
+// It is mostly use to find negative value in the form of binary format of the decimal digit.
+// It's based on usage. If you put 2's complement value to the calulator output will be something else.
+// We add negative sign(-) and operate on that value. That is all my understanding of the bitwise complement for now.
+
+// formula for the 2'complement is 
+// ~N = -(~(~N)+1)
+// ~N = -(N+1)
+// This is in the book I currently studying but the Bing AI state that the formula is ~N+1
+
+void complement(){
+    int x = 35, y = -35;
+    
+    printf("1's complement of positive number is %d\n",~x);
+    printf("1's complement of negative number is %d\n",~y);
+
+    int P = -(~(~x)+1);
+    int N = -(~(~y)+1);
+    printf("2's complement of positive number is %d\n",P);
+    printf("2's complement of negative number is %d\n",N);
+
+    int aP = ~x+1;
+    int aN = ~y+1;
+    printf("2's complement of positive number is %d\n",aP);
+    printf("2's complement of negative number is %d\n",aN);
+
+}
