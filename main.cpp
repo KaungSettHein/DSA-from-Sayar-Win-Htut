@@ -6,7 +6,11 @@
 // void ifStatment();
 // int ifElse();
 // void bitwise();
-void complement();
+// void complement();
+// void ShiftOperator();
+// void breakTest();
+// void continueTest();
+void gotoTest();
 
 int main(void){
     
@@ -16,7 +20,11 @@ int main(void){
     // ifStatment();
     // ifElse();
     // bitwise();
-    complement();
+    // complement();
+    // ShiftOperator();
+    //  breakTest();
+    // continueTest();
+    gotoTest();
 
     return 0;
 }
@@ -186,20 +194,125 @@ int main(void){
 // ~N = -(N+1)
 // This is in the book I currently studying but the Bing AI state that the formula is ~N+1
 
-void complement(){
-    int x = 35, y = -35;
+// void complement(){
+//     int x = 35, y = -35;
     
-    printf("1's complement of positive number is %d\n",~x);
-    printf("1's complement of negative number is %d\n",~y);
+//     printf("1's complement of positive number is %d\n",~x);
+//     printf("1's complement of negative number is %d\n",~y);
 
-    int P = -(~(~x)+1);
-    int N = -(~(~y)+1);
-    printf("2's complement of positive number is %d\n",P);
-    printf("2's complement of negative number is %d\n",N);
+//     int P = -(~(~x)+1);
+//     int N = -(~(~y)+1);
+//     printf("2's complement of positive number is %d\n",P);
+//     printf("2's complement of negative number is %d\n",N);
 
-    int aP = ~x+1;
-    int aN = ~y+1;
-    printf("2's complement of positive number is %d\n",aP);
-    printf("2's complement of negative number is %d\n",aN);
+//     int aP = ~x+1;
+//     int aN = ~y+1;
+//     printf("2's complement of positive number is %d\n",aP);
+//     printf("2's complement of negative number is %d\n",aN);
 
+// }
+
+
+//For shift operator, Left shift is multiply the value x to 2^N. Right shift is divide the value of x to 2^N.
+
+
+// void ShiftOperator(){
+//     int x = 30;
+
+//     printf("Left shift by 1 bit (x*2) = %d\n\n",x<<1);
+//     printf("Left shift by 2 bit (x*2*2) = %d\n\n",x<<2);
+//     printf("Left shift by 3 bit (x*2*2*2) = %d\n\n",x<<3);
+//     printf("Left shift by 4 bit (x*2*2*2*2) = %d\n\n\n",x<<4);
+
+//     int y = 500;
+//     printf("Right shift by 1 bit (y/2) = %d\n\n",y>>1);
+//     printf("Right shift by 2 bit (y/2*2) = %d\n\n",y>>2);
+//     printf("Right shift by 3 bit (y/2*2*2) = %d\n\n",y>>3);
+//     printf("Right shift by 4 bit (y/2*2*2*2) = %d\n\n",y>>4);
+// }
+
+// sizeof() is for size of the data type fo the variable.I'm not writing eg code for this.
+
+// void breakTest(){
+//     char opera;
+//     // bool check;
+//     double fNum, secNum;
+
+//     printf("Please enter Two Numbers:");
+//     scanf("%2lf %2lf", &fNum, &secNum);
+//     printf("Enter an operator (+,-,*,/):");
+//     scanf(" %c", &opera);
+
+//     // do
+//     // {
+//     //     printf("Enter an operator (+,-,*,/):");
+//     //     scanf(" %c", &opera);
+
+//     //     if(opera != '+' && opera != '-' && opera != '*' && opera != '/'){
+//     //         printf("\t\t\tERROR!\n\t\tOperator is not correct\n");
+//     //         check = true;      
+//     //     }else{
+//     //         check = false;
+//     //     }
+//     // } while (check);
+
+    
+
+//     switch (opera)
+//     {
+//     case '+':
+//         printf("%.2lf + %2.lf = %.3lf\n",fNum, secNum, fNum + secNum);
+//         break;
+//     case '-':
+//         printf("%.2lf - %2.lf = %.3lf\n",fNum, secNum, fNum - secNum);
+//         break;
+//     case '*':
+//         printf("%.2lf * %2.lf = %.3lf\n",fNum, secNum, fNum * secNum);
+//         break;
+//     case '/':
+//         printf("%.2lf / %2.lf = %.3lf\n",fNum, secNum, fNum / secNum);
+//         break;
+    
+//     default:
+//         printf("\t\t\tERROR!\n");
+//         break;
+//     }
+// }
+
+// void continueTest(){
+//     int num;
+//     int sum = 0;
+//     for (int i = 1; i <= 6; i++)
+//     {
+//         printf("Please enter mark %d:",i);
+//         scanf("%d", &num);
+//         if (num < 30)
+//         {
+//             printf("Fail! We are not adding this to total mark\n");
+//             continue; // If the code hit the "continue;" it start from "for loop"
+//         }
+//         sum += num;
+//     }
+//     printf("Sum = %d\n",sum);
+    
+// }
+
+void gotoTest(){
+    int someNum = 5;
+    int i, num, avg, sum = 0;
+    for ( i = 0; i <= someNum; i++)
+    {
+        printf("%d Enter a some number:", i);
+        scanf("%d", &num);
+        if (num<10)
+        {
+            goto move;
+            sum += num;
+        }
+        move: 
+            avg = sum / (i - 1);
+            printf("sum = %d\n", sum);
+            printf("Average = %d\n", avg);
+    }    
+    
 }
