@@ -10,7 +10,10 @@
 // void ShiftOperator();
 // void breakTest();
 // void continueTest();
-void gotoTest();
+// void evenOdd();
+// void vowelCheck();
+// void largestNum();
+void quadratic();
 
 int main(void){
     
@@ -24,7 +27,10 @@ int main(void){
     // ShiftOperator();
     //  breakTest();
     // continueTest();
-    gotoTest();
+    // evenOdd();
+    // vowelCheck();
+    // largestNum();
+    quadratic();
 
     return 0;
 }
@@ -297,22 +303,71 @@ int main(void){
     
 // }
 
-void gotoTest(){
-    int someNum = 5;
-    int i, num, avg, sum = 0;
-    for ( i = 0; i <= someNum; i++)
-    {
-        printf("%d Enter a some number:", i);
-        scanf("%d", &num);
-        if (num<10)
-        {
-            goto move;
-            sum += num;
-        }
-        move: 
-            avg = sum / (i - 1);
-            printf("sum = %d\n", sum);
-            printf("Average = %d\n", avg);
-    }    
+// goto name <- go to the name code and stop working all the code below goto name
+
+// void evenOdd(){
+//     int num;
+//     printf("Enter a number:");
+//     scanf("%d",&num);
+
+//     if ((num%2) == 0)
+//     {
+//         printf("This is even number.\n");
+//     }else{
+//         printf("This is odd number.\n");
+//     }
+// }
+
+// void vowelCheck(){
+//     char c;
+//     int smallVowel, bigVowel;
+
+//     printf("Please Enter a alphabet:");
+//     scanf("%c",&c);
+
+//     smallVowel = ( c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+//     bigVowel = ( c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
+
+//     if (smallVowel || bigVowel)
+//     {
+//         printf("%c is a vowel.\n",c);
+//     }else{
+//         printf("%c is a consonant.\n",c);
+//     }
+// }
+
+// void largestNum(){
+//     double first, second, third, fourth;
+
+//     printf("Enter first Number to compare:");
+//     scanf("%lf",&first); // if you use %f or %1f for double in scanf it will generate different value than you input, you should use %lf for float but in printf either is good.
+//     printf("Enter second Number to compare:");
+//     scanf("%lf",&second);
+//     printf("Enter third Number to compare:");
+//     scanf("%lf",&third);
+//     printf("Enter fourth Number to compare:");
+//     scanf("%lf",&fourth);
+
+//     if ((first > second) && (first > third) && (first > fourth))
+//     {
+//         printf("%.2f is the largest number\n",first);
+//     }
+//     else if ((second > first) && (second > second) && (second > third))
+//     {
+//         printf("%.2f is the largest number\n",second);
+//     }
+//     else if ((third > first) && (third > second) && (third > fourth))
+//     {
+//         printf("%.2f is the largest number\n",third);
+//     }
+//     else
+//     {
+//         printf("%.2f is the largest number\n",fourth);
+//     }
+    
+// }
+
+// discriminant
+void quadratic(){
     
 }
