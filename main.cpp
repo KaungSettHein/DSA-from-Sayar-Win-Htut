@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<math.h>
 
 // void op();
 // void UnaryBinary();
@@ -367,7 +368,29 @@ int main(void){
     
 // }
 
-// discriminant
+
 void quadratic(){
+    double a,b,c;
+    double determinant, root1, root2, realPart, imaginaryPart;
+    printf("Enter value of a and b, c:");
+    scanf("%lf %lf %lf",&a,&b,&c);
+    determinant - b*b - 4*a*c;
+    if (determinant > 0)
+    {
+        root1 = -b + sqrt(determinant)/(2*a);
+        root2 = -b - sqrt(determinant)/(2*a);
+        printf("Positive value is %.2lf and Negative value is %.2lf\n",root1,root2);
+    }
+    else if (determinant == 0)
+    {
+        root1 = -b/(2*a);
+        printf("root1 = root2 = %.2lf\n",root1);
+    }
+    else
+    {
+        realPart = -b/(2*a);
+        imaginaryPart = sqrt(-determinant)/(2*a);
+        printf("root1 = %.2lf+%.2fi and root1 = %.2lf+%.2fi\n",realPart,imaginaryPart,realPart,imaginaryPart);
+    }
     
 }
