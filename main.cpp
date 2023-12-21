@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<math.h>
+#include<stdlib.h>
+#include<time.h>
 
 // void op();
 // void UnaryBinary();
@@ -14,7 +16,13 @@
 // void evenOdd();
 // void vowelCheck();
 // void largestNum();
-void quadratic();
+// void quadratic();
+// void floydTri();
+// int calculate(int x, int y, int z, int zz);
+// int randTest();
+// int randFrequentCount();
+// int timeRand();
+
 
 int main(void){
     
@@ -26,15 +34,41 @@ int main(void){
     // bitwise();
     // complement();
     // ShiftOperator();
-    //  breakTest();
+    // breakTest();
     // continueTest();
     // evenOdd();
     // vowelCheck();
     // largestNum();
-    quadratic();
+    // quadratic();
+    // floydTri();
+    // randTest();
+    // randFrequentCount();
+    // timeRand();
 
+    // int number1,number2,number3,number4;
+    // printf("Enter 4 digits:");
+    // scanf("%d%d%d%d",&number1,&number2,&number3,&number4);
+
+    // printf("The result is %d\n", calculate(number1,number2,number3,number4));
     return 0;
 }
+
+// int calculate(int x, int y, int z, int zz){
+//     return (x+y+z)/zz;
+// }
+
+// int randTest(){
+//     for (int i = 1; i <= 30; i++)
+//     {
+//         printf("%5d",1+(rand()%6)); // %6 is scaling for number to come out max 6, %5d means print an int with a minimum field width of 5. The the value isn't 5 characters wide it will be left padded with space. 
+//         if (i%5 == 0)
+//         {
+//             puts(""); // next line for every condition in the if
+//         }
+        
+//     }
+//     return 0;
+// }
 
 // int main(void){
 //     int num1 = 0;
@@ -369,28 +403,98 @@ int main(void){
 // }
 
 
-void quadratic(){
-    double a,b,c;
-    double determinant, root1, root2, realPart, imaginaryPart;
-    printf("Enter value of a and b, c:");
-    scanf("%lf %lf %lf",&a,&b,&c);
-    determinant - b*b - 4*a*c;
-    if (determinant > 0)
-    {
-        root1 = -b + sqrt(determinant)/(2*a);
-        root2 = -b - sqrt(determinant)/(2*a);
-        printf("Positive value is %.2lf and Negative value is %.2lf\n",root1,root2);
-    }
-    else if (determinant == 0)
-    {
-        root1 = -b/(2*a);
-        printf("root1 = root2 = %.2lf\n",root1);
-    }
-    else
-    {
-        realPart = -b/(2*a);
-        imaginaryPart = sqrt(-determinant)/(2*a);
-        printf("root1 = %.2lf+%.2fi and root1 = %.2lf+%.2fi\n",realPart,imaginaryPart,realPart,imaginaryPart);
-    }
+// void quadratic(){
+//     double a,b,c;
+//     double determinant, root1, root2, realPart, imaginaryPart;
+//     printf("Enter value of a and b, c:");
+//     scanf("%lf %lf %lf",&a,&b,&c);
+//     determinant = b*b - 4*a*c;
+//     if (determinant > 0)
+//     {
+//         root1 = (-b + sqrt(determinant))/(2*a);
+//         root2 = (-b - sqrt(determinant))/(2*a);
+//         printf("Positive value is %.2lf and Negative value is %.2lf\n",root1,root2);
+//     }
+//     else if (determinant == 0)
+//     {
+//         root1 = -b/(2*a);
+//         printf("root1 = root2 = %.2lf\n",root1);
+//     }
+//     else
+//     {
+//         realPart = -b/(2*a);
+//         imaginaryPart = sqrt(-determinant)/(2*a);
+//         printf("root1 = %.2lf+%.2fi and root1 = %.2lf+%.2fi\n",realPart,imaginaryPart,realPart,imaginaryPart);
+//     }
     
+// }
+
+//  void floydTri(){
+//     int a = 1,i,j;
+//     int input = 0;
+//     printf("Please enter row number:");
+//     scanf("%d",&input);
+//     for (i = 1; i <= input;i++)
+//     {
+//         for (j = 1; j <= i;j++)
+//         {
+//             printf("%d",a);            
+//         }
+//         printf("\n");  
+//     }
+    
+// }
+
+// int randFrequentCount(){
+//     int oneTime = 0, twoTime = 0, threeTime = 0, fourTime = 0, fiveTime = 0;
+//     for (int i = 1; i < 10000; i++)
+//     {
+//         int number = 1+(rand()%6);
+//         switch (number)
+//         {
+//         case 1:
+//             ++oneTime;
+//             break;
+        
+//         case 2:
+//             ++twoTime;
+//             break;
+
+//         case 3:
+//             ++threeTime;
+//             break;
+
+//         case 4:
+//             ++fourTime;
+//             break;
+
+//         case 5:
+//             ++fiveTime;
+//             break;        
+        
+//         default:
+//             break;
+//         }
+//     }
+//     printf(" %s%10s\n","Number","Frequency");
+//     printf("   1%10d\n",oneTime);
+//     printf("   2%10d\n",twoTime);
+//     printf("   3%10d\n",threeTime);
+//     printf("   4%10d\n",fourTime);
+//     printf("   5%10d\n",fiveTime);
+// }
+
+// int timeRand(){
+//     srand(time(NULL));
+//     for (int i = 1; i < 20; i++)
+//     {
+//         int x = rand() % 100;
+//         printf("%10u", x);
+//     }
+//     printf("\n");
+//     return 0;
+// }
+
+int compareTwoRand(){
+
 }
