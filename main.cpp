@@ -2,7 +2,7 @@
 #include<math.h>
 #include<stdlib.h>
 #include<time.h>
-
+enum colors {BLACK, BLUE, GREEN, CYAN, RED, YELLOW, WHITE};
 // void op();
 // void UnaryBinary();
 // void ArthmeticOp();
@@ -22,7 +22,8 @@
 // int randTest();
 // int randFrequentCount();
 // int timeRand();
-
+// int compareTwoRand();
+int diceEnum();
 
 int main(void){
     
@@ -44,6 +45,8 @@ int main(void){
     // randTest();
     // randFrequentCount();
     // timeRand();
+    // compareTwoRand();
+    diceEnum();
 
     // int number1,number2,number3,number4;
     // printf("Enter 4 digits:");
@@ -495,6 +498,33 @@ int main(void){
 //     return 0;
 // }
 
-int compareTwoRand(){
+// int compareTwoRand(){
+//     int computerNo, humanNo;
+//     srand(time(NULL));
+//     computerNo = rand()%10+1;
 
+//     do
+//     {
+//         printf("Number 1-10:");
+//         scanf("%d",&humanNo);
+        
+//         if(computerNo<humanNo){
+//             puts("Computer number is lower");
+//         }else if (computerNo>humanNo)
+//         {
+//             puts("Human number is lower");
+//         }
+//     } while (humanNo != computerNo);
+//     printf("They are the same value");
+
+//     return 0;
+// }
+
+
+int diceEnum(){
+    enum colors to_out;
+    to_out = YELLOW;
+
+    printf("this is it >> >> >> %5d\n", to_out);
+    return 0;
 }
