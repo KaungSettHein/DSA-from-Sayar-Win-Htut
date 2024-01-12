@@ -23,7 +23,15 @@ enum colors {BLACK, BLUE, GREEN, CYAN, RED, YELLOW, WHITE};
 // int randFrequentCount();
 // int timeRand();
 // int compareTwoRand();
-int diceEnum();
+// int diceEnum();
+// float areaRectangel(float width, float height);
+// void autoStorageClass();
+void externStorageClass();
+
+
+// void somevalue(int *F); // pointer usage
+// int year = 2024; // if globle and local variable are same name value will be local value
+int globle = 24;
 
 int main(void){
     
@@ -46,18 +54,66 @@ int main(void){
     // randFrequentCount();
     // timeRand();
     // compareTwoRand();
-    diceEnum();
+    // diceEnum();
+    // autoStorageClass();
+    externStorageClass();
 
     // int number1,number2,number3,number4;
     // printf("Enter 4 digits:");
     // scanf("%d%d%d%d",&number1,&number2,&number3,&number4);
 
     // printf("The result is %d\n", calculate(number1,number2,number3,number4));
+
+    // int age = 27;
+    // printf("In year %d, my age is %d.\n",year,age);
+
+    // float width,height;
+    // printf("Enter width of the rectangle:");
+    // scanf("%f",&width);
+    // printf("Enter height of the rectangle:");
+    // scanf("%f",&height);
+
+    // printf("Area of Rectangle is %f\n",areaRectangel(width,height));
+
+    // int A;
+    // printf("Enter somevalue:");
+    // scanf("%d",&A);
+    // somevalue(&A);
+    // printf("A(Actural parameter):%d",A);
+
     return 0;
 }
 
+void externStorageClass(){
+    globle = 33;
+    printf("globle value change from 24 to %d in this class\n",globle);
+}
+
+// void autoStorageClass(){ // auto storage class work like local variable
+//     auto valueOne = 20;
+//     auto extValue = 20;
+//     {
+//         auto valueOne = 30;
+//         auto interValue = 30;
+//         printf("Auto Storage value inside scope:%d\n",valueOne);
+//         printf("External Auto Storage value:%d\n",extValue); // can call
+//     }
+//     printf("Auto Storage value outside scope:%d\n",valueOne);
+//     // printf("Internal Auto Storage value:%d",interValue);// can`t call
+// }
+
+// void somevalue(int *F){
+//     *F = *F*2;
+//     printf("F(formal paramenter):%d",*F);
+// }
 // int calculate(int x, int y, int z, int zz){
 //     return (x+y+z)/zz;
+// }
+
+// float areaRectangel(float w, float h){
+//      float area;
+//      area = w*h;
+//     return area;
 // }
 
 // int randTest(){
@@ -67,8 +123,7 @@ int main(void){
 //         if (i%5 == 0)
 //         {
 //             puts(""); // next line for every condition in the if
-//         }
-        
+//         }    
 //     }
 //     return 0;
 // }
@@ -83,7 +138,6 @@ int main(void){
 //     scanf("%d", &num2);
 //     ttl = num1 + num2;
 //     printf("Total number is %d\n",ttl);
-
 //     return 0;
 // }
 
@@ -100,7 +154,6 @@ int main(void){
 //     int a = 15;
 //     int b = 10;
 //     int z = a * b;
-    
 //     printf("a and b multiple is %d",z);
 // }
 
@@ -119,7 +172,6 @@ int main(void){
 //     int b = 20;
 //     int z = -a; //unary minus
 //     int x = b -a; // binary minus
-
 //     printf("unary minus is %d\n",z);
 //     printf("binary minus is %d\n",x);
 // }
@@ -521,10 +573,10 @@ int main(void){
 // }
 
 
-int diceEnum(){
-    enum colors to_out;
-    to_out = YELLOW;
+// int diceEnum(){
+//     enum colors to_out;
+//     to_out = YELLOW;
 
-    printf("this is it >> >> >> %5d\n", to_out);
-    return 0;
-}
+//     printf("this is it >> >> >> %5d\n", to_out);
+//     return 0;
+// }
