@@ -26,12 +26,13 @@ enum colors {BLACK, BLUE, GREEN, CYAN, RED, YELLOW, WHITE};
 // int diceEnum();
 // float areaRectangel(float width, float height);
 // void autoStorageClass();
-void externStorageClass();
+// void externStorageClass();
+// void counter();
 
 
 // void somevalue(int *F); // pointer usage
 // int year = 2024; // if globle and local variable are same name value will be local value
-int globle = 24;
+// int globle = 24;
 
 int main(void){
     
@@ -56,12 +57,12 @@ int main(void){
     // compareTwoRand();
     // diceEnum();
     // autoStorageClass();
-    externStorageClass();
+    // externStorageClass();
+    // counter();
 
     // int number1,number2,number3,number4;
     // printf("Enter 4 digits:");
     // scanf("%d%d%d%d",&number1,&number2,&number3,&number4);
-
     // printf("The result is %d\n", calculate(number1,number2,number3,number4));
 
     // int age = 27;
@@ -72,7 +73,6 @@ int main(void){
     // scanf("%f",&width);
     // printf("Enter height of the rectangle:");
     // scanf("%f",&height);
-
     // printf("Area of Rectangle is %f\n",areaRectangel(width,height));
 
     // int A;
@@ -81,13 +81,27 @@ int main(void){
     // somevalue(&A);
     // printf("A(Actural parameter):%d",A);
 
+    // for (int i = 0; i < 5; i++)
+    // {
+    //     counter();
+    // }
+
     return 0;
 }
 
-void externStorageClass(){
-    globle = 33;
-    printf("globle value change from 24 to %d in this class\n",globle);
-}
+// void counter(){
+//     int counter = 0;
+//     static int staticCounter = 0;
+//     counter++;
+//     staticCounter++;
+//     printf("counter: %d\n",counter);
+//     printf("static counter: %d\n",staticCounter);
+// }
+
+// void externStorageClass(){
+//     globle = 33;
+//     printf("globle value change from 24 to %d in this class\n",globle);
+// }
 
 // void autoStorageClass(){ // auto storage class work like local variable
 //     auto valueOne = 20;
@@ -183,13 +197,11 @@ void externStorageClass(){
 //     int a = 10;
 //     int b = 5;
 //     int x,y,z,i,j;
-
 //     x = a + b;
 //     y = a - b;
 //     z = a * b;
 //     i = a / b;
 //     j = a % b;
-
 //     printf("a and b addition is %d\n",x);
 //     printf("a and b subtraction is %d\n",y);
 //     printf("a and b multiplication is %d\n",z);
@@ -201,7 +213,6 @@ void externStorageClass(){
 // Sequence Structure is the code that work line by line as it write
 // Selection Structure is "if" "if else" "switch" condition
 // Iteration Structure is "while" "do while" "for" loop
-
 // Selection Structure "if"
 
 //  void ifStatment(){
@@ -210,10 +221,8 @@ void externStorageClass(){
 //     int ttl = 0;
 //     printf("Please enter first number:");
 //     scanf("%d",&first);
-
 //     printf("Please enter second number:");
 //     scanf("%d",&sec);
-
 //     ttl = first+sec;
 //     if (ttl == 15)
 //     {
@@ -235,7 +244,6 @@ void externStorageClass(){
 //     int n1 = 0;
 //     printf("enter a number\n");
 //     scanf("%d",&n1);
-
 //     if (n1 > 5)
 //     {
 //         printf("your number is greater than 5\n");
@@ -267,10 +275,8 @@ void externStorageClass(){
 // void bitwise(){
 //     int a = 12, b = 25;
 //     printf("Bitwise AND Output = %d\n",a&b);
-
 //     int x = 12, y = 25;
 //     printf("Bitwise OR Output = %d\n", x|y);
-
 //     int i = 12, j = 25;
 //     printf("Bitwise XOR Output = %d\n",x^y);
 // }
@@ -292,34 +298,27 @@ void externStorageClass(){
 
 // void complement(){
 //     int x = 35, y = -35;
-    
 //     printf("1's complement of positive number is %d\n",~x);
 //     printf("1's complement of negative number is %d\n",~y);
-
 //     int P = -(~(~x)+1);
 //     int N = -(~(~y)+1);
 //     printf("2's complement of positive number is %d\n",P);
 //     printf("2's complement of negative number is %d\n",N);
-
 //     int aP = ~x+1;
 //     int aN = ~y+1;
 //     printf("2's complement of positive number is %d\n",aP);
 //     printf("2's complement of negative number is %d\n",aN);
-
 // }
 
 
 //For shift operator, Left shift is multiply the value x to 2^N. Right shift is divide the value of x to 2^N.
 
-
 // void ShiftOperator(){
 //     int x = 30;
-
 //     printf("Left shift by 1 bit (x*2) = %d\n\n",x<<1);
 //     printf("Left shift by 2 bit (x*2*2) = %d\n\n",x<<2);
 //     printf("Left shift by 3 bit (x*2*2*2) = %d\n\n",x<<3);
 //     printf("Left shift by 4 bit (x*2*2*2*2) = %d\n\n\n",x<<4);
-
 //     int y = 500;
 //     printf("Right shift by 1 bit (y/2) = %d\n\n",y>>1);
 //     printf("Right shift by 2 bit (y/2*2) = %d\n\n",y>>2);
@@ -333,17 +332,14 @@ void externStorageClass(){
 //     char opera;
 //     // bool check;
 //     double fNum, secNum;
-
 //     printf("Please enter Two Numbers:");
 //     scanf("%2lf %2lf", &fNum, &secNum);
 //     printf("Enter an operator (+,-,*,/):");
 //     scanf(" %c", &opera);
-
 //     // do
 //     // {
 //     //     printf("Enter an operator (+,-,*,/):");
 //     //     scanf(" %c", &opera);
-
 //     //     if(opera != '+' && opera != '-' && opera != '*' && opera != '/'){
 //     //         printf("\t\t\tERROR!\n\t\tOperator is not correct\n");
 //     //         check = true;      
@@ -351,9 +347,6 @@ void externStorageClass(){
 //     //         check = false;
 //     //     }
 //     // } while (check);
-
-    
-
 //     switch (opera)
 //     {
 //     case '+':
@@ -368,7 +361,6 @@ void externStorageClass(){
 //     case '/':
 //         printf("%.2lf / %2.lf = %.3lf\n",fNum, secNum, fNum / secNum);
 //         break;
-    
 //     default:
 //         printf("\t\t\tERROR!\n");
 //         break;
@@ -390,7 +382,6 @@ void externStorageClass(){
 //         sum += num;
 //     }
 //     printf("Sum = %d\n",sum);
-    
 // }
 
 // goto name <- go to the name code and stop working all the code below goto name
@@ -399,7 +390,6 @@ void externStorageClass(){
 //     int num;
 //     printf("Enter a number:");
 //     scanf("%d",&num);
-
 //     if ((num%2) == 0)
 //     {
 //         printf("This is even number.\n");
@@ -411,13 +401,10 @@ void externStorageClass(){
 // void vowelCheck(){
 //     char c;
 //     int smallVowel, bigVowel;
-
 //     printf("Please Enter a alphabet:");
 //     scanf("%c",&c);
-
 //     smallVowel = ( c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 //     bigVowel = ( c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
-
 //     if (smallVowel || bigVowel)
 //     {
 //         printf("%c is a vowel.\n",c);
@@ -428,7 +415,6 @@ void externStorageClass(){
 
 // void largestNum(){
 //     double first, second, third, fourth;
-
 //     printf("Enter first Number to compare:");
 //     scanf("%lf",&first); // if you use %f or %1f for double in scanf it will generate different value than you input, you should use %lf for float but in printf either is good.
 //     printf("Enter second Number to compare:");
@@ -437,7 +423,6 @@ void externStorageClass(){
 //     scanf("%lf",&third);
 //     printf("Enter fourth Number to compare:");
 //     scanf("%lf",&fourth);
-
 //     if ((first > second) && (first > third) && (first > fourth))
 //     {
 //         printf("%.2f is the largest number\n",first);
@@ -454,9 +439,7 @@ void externStorageClass(){
 //     {
 //         printf("%.2f is the largest number\n",fourth);
 //     }
-    
 // }
-
 
 // void quadratic(){
 //     double a,b,c;
@@ -481,7 +464,6 @@ void externStorageClass(){
 //         imaginaryPart = sqrt(-determinant)/(2*a);
 //         printf("root1 = %.2lf+%.2fi and root1 = %.2lf+%.2fi\n",realPart,imaginaryPart,realPart,imaginaryPart);
 //     }
-    
 // }
 
 //  void floydTri(){
@@ -496,8 +478,7 @@ void externStorageClass(){
 //             printf("%d",a);            
 //         }
 //         printf("\n");  
-//     }
-    
+//     } 
 // }
 
 // int randFrequentCount(){
@@ -509,24 +490,19 @@ void externStorageClass(){
 //         {
 //         case 1:
 //             ++oneTime;
-//             break;
-        
+//             break;       
 //         case 2:
 //             ++twoTime;
 //             break;
-
 //         case 3:
 //             ++threeTime;
 //             break;
-
 //         case 4:
 //             ++fourTime;
 //             break;
-
 //         case 5:
 //             ++fiveTime;
-//             break;        
-        
+//             break;               
 //         default:
 //             break;
 //         }
@@ -554,12 +530,10 @@ void externStorageClass(){
 //     int computerNo, humanNo;
 //     srand(time(NULL));
 //     computerNo = rand()%10+1;
-
 //     do
 //     {
 //         printf("Number 1-10:");
-//         scanf("%d",&humanNo);
-        
+//         scanf("%d",&humanNo);  
 //         if(computerNo<humanNo){
 //             puts("Computer number is lower");
 //         }else if (computerNo>humanNo)
@@ -568,7 +542,6 @@ void externStorageClass(){
 //         }
 //     } while (humanNo != computerNo);
 //     printf("They are the same value");
-
 //     return 0;
 // }
 
@@ -576,7 +549,6 @@ void externStorageClass(){
 // int diceEnum(){
 //     enum colors to_out;
 //     to_out = YELLOW;
-
 //     printf("this is it >> >> >> %5d\n", to_out);
 //     return 0;
 // }
