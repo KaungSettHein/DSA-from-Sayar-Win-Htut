@@ -2,6 +2,9 @@
 #include<math.h>
 #include<stdlib.h>
 #include<time.h>
+#include<stdlib.h>
+#include<string.h>
+#define SIZE 5
 enum colors {BLACK, BLUE, GREEN, CYAN, RED, YELLOW, WHITE};
 // void op();
 // void UnaryBinary();
@@ -28,6 +31,10 @@ enum colors {BLACK, BLUE, GREEN, CYAN, RED, YELLOW, WHITE};
 // void autoStorageClass();
 // void externStorageClass();
 // void counter();
+// void TwoDArray();
+// void addAndExpandArray();
+// void memoryAlloc();
+// void memoryCalloc();
 
 
 // void somevalue(int *F); // pointer usage
@@ -59,6 +66,10 @@ int main(void){
     // autoStorageClass();
     // externStorageClass();
     // counter();
+    // TwoDArray();
+    // addAndExpandArray();
+    // memoryAlloc();
+    // memoryCalloc();
 
     // int number1,number2,number3,number4;
     // printf("Enter 4 digits:");
@@ -86,8 +97,149 @@ int main(void){
     //     counter();
     // }
 
+    char *ptr;
+    ptr = (char*)malloc(10);
+    strcpy(ptr,"Programming");
+    printf("%s ,address is %u",ptr,ptr);
+    ptr = (char*)realloc(ptr,20);
+    strcat(ptr," In 'C'");
+    printf("\n%s ,address is %u",ptr,ptr);
+    free(ptr);
     return 0;
 }
+//malloc(),calloc(),realloc(),free() 4 functions for memory allocation (type)alloctionfun(size) 
+//malloc() and calloc() are not that different but malloc() is better. *(pointer+index) = value; you can put value like this
+// realloc() is changing memory size with the existing pointer.
+// free() is to clear the value used by those memory pointer.if you printf pointer value it will show the memory address.
+// void memoryCalloc(){
+//     int *ptr,sum=0;
+//     ptr = (int*)calloc(10,sizeof(*ptr));
+//     if (ptr!= NULL)
+//     {
+//         printf("memory is created at %d\n",ptr);
+//     }
+//     else{
+//         printf("cannnot create memory.\n");
+//     }
+//     for (int i = 0; i < 10; i++)
+//     {   
+//         *(ptr+i)=i;
+//         sum += *(ptr+i);
+//         printf("%d value is %d\n",i,*(ptr+i));
+//     }
+//     printf("Sum of all values at each block:%d\n",sum);
+//     free(ptr);
+// }
+
+// void memoryAlloc(){
+//     int *ptr;
+//     ptr = (int*)malloc(10 * sizeof(*ptr));
+//     if (ptr!= NULL)
+//     {
+//         printf("memory is created at %d\n",ptr);
+//         *(ptr+1)=10;
+//         *(ptr+3)=30;
+//         *(ptr+4)=40;
+//         *(ptr+5)=50;
+//         *(ptr+6)=60;
+//     }
+//     else{
+//         printf("cannnot create memory.\n");
+//     }
+//     for (int i = 0; i < 7; i++)
+//     {
+//         printf("%d value is %d\n",i,*(ptr+i));
+//     }
+//     free(ptr);
+// }
+
+// void addAndExpandArray(){
+//     int valueNum,indexNum,number;
+//     printf("Enter array length:");
+//     scanf("%d",&number);
+//     int arr[number];
+//     for (int i = 0; i < number; i++)
+//     {
+//          printf("Enter array value for %d index:",i);
+//         scanf("%d",&arr[i]);
+//     }
+//     printf("Array data element are:");
+//     for (int i = 0; i < number; i++)
+//     {
+//         printf("%3d",arr[i]);
+//     }
+//     printf("\nEnter array value:");
+//     scanf("%d",&valueNum);
+//     printf("Enter array index:");
+//     scanf("%d",&indexNum);
+//     arr[indexNum] = valueNum;
+//     printf("Array after value change:");
+//     for (int i = 0; i < number; i++)
+//     {
+//         printf("%3d",arr[i]);
+//     }
+//     printf("\nDo you want to add one more value and array length?Y/N:");
+//     char ans;
+//     scanf("%s",&ans);
+//     if (ans == 'Y' || ans == 'y')
+//     {
+//         printf("Enter array value:");
+//         scanf("%d",&valueNum);
+//         printf("Enter array index:");
+//         scanf("%d",&indexNum);
+//        for (int i = number; i > indexNum; i--) // 4,3,2 > 2
+//             arr[i] = arr[i - 1];               // arr[4,3] = arr[3,2]
+//         }
+//         arr[indexNum] = valueNum;
+//         number++;
+//         printf("Array after value change:");
+//         for (int i = 0; i < number; i++)
+//         {
+//             printf("%3d",arr[i]);
+//         }
+//     }else
+//     {
+//         return 0;
+//     }
+//     printf("\n");
+// }
+
+// void TwoDArray(){
+//     int arr[] = { 10,11,12,13,14,15};
+//     int a[3][3]= { {1,2,3},{4,5,6},{7,8,9} } ;
+//     int row = 3;
+//     int col =3;
+//     for (int i = 0; i < 5; i++)
+//     {
+//         printf("this is arr %d\n",arr);
+//         printf("this is *arr %d\n",*arr);
+//         printf("this is *(arr+i) %d\n",*(arr+i));
+//         printf("this is *(i+arr) %d\n",*(i+arr));
+//         printf("this is arr[i] %d\n",arr[i]);
+//         printf("this is i[arr] %d\n",i[arr]);
+//         printf("%3d%3d%3d%3d%3d%3d\n",i[arr],arr[i],*(i+arr),*(arr+i),*arr,arr);
+//         printf("===========\n");
+//     }
+//     for (int i = 0; i < row; i++)
+//     {
+//         for (int j = 0; j < col; j++)
+//         {
+//             printf("%3d",a[i][j]);
+//         }
+//         printf("\n");
+//     }
+//     printf("===========\n");
+//     int b[3][2]= { {0,2},{0,5},{0,8} } ;
+//     int Ncol = 2;
+//     for (int i = 0; i < row; i++)
+//     {
+//         for (int j = 0; j < Ncol; j++)
+//         {
+//             printf("%3d",b[i][j]);
+//         }
+//         printf("\n");
+//     }    
+// }
 
 // void counter(){
 //     int counter = 0;
@@ -544,7 +696,6 @@ int main(void){
 //     printf("They are the same value");
 //     return 0;
 // }
-
 
 // int diceEnum(){
 //     enum colors to_out;
