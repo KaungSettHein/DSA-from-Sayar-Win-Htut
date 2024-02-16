@@ -35,7 +35,13 @@ enum colors {BLACK, BLUE, GREEN, CYAN, RED, YELLOW, WHITE};
 // void addAndExpandArray();
 // void memoryAlloc();
 // void memoryCalloc();
-
+// void memoryRealooc();
+// void fileCreateWrite();
+// void fileCreateWithoutLoop();
+// void usingfprintf();
+// void usinggetc();
+// int usingfgets();
+void usingfscanf();
 
 // void somevalue(int *F); // pointer usage
 // int year = 2024; // if globle and local variable are same name value will be local value
@@ -70,6 +76,13 @@ int main(void){
     // addAndExpandArray();
     // memoryAlloc();
     // memoryCalloc();
+    // memoryRealooc();
+    // fileCreateWrite();
+    // fileCreateWithoutLoop();
+    // usingfprintf();
+    // usinggetc();
+    // usingfgets();
+    usingfscanf();
 
     // int number1,number2,number3,number4;
     // printf("Enter 4 digits:");
@@ -97,16 +110,98 @@ int main(void){
     //     counter();
     // }
 
-    char *ptr;
-    ptr = (char*)malloc(10);
-    strcpy(ptr,"Programming");
-    printf("%s ,address is %u",ptr,ptr);
-    ptr = (char*)realloc(ptr,20);
-    strcat(ptr," In 'C'");
-    printf("\n%s ,address is %u",ptr,ptr);
-    free(ptr);
     return 0;
 }
+void usingfscanf(){
+    FILE *fptr;
+    char dataOne[50], dataTwo[60];
+    fptr = fopen("1hello.txt","r");
+    printf("===OPENING FILE!===\n");
+    if(fptr != NULL){
+        fscanf(fptr,"%s %s",dataOne,dataTwo);
+        printf("Reading string:%s\n",dataOne);
+        printf("Reading string:%s\n",dataTwo);
+    }else{
+        printf("ERROR!");
+    }
+    fclose(fptr);
+}
+
+// int usingfgets(){
+//     FILE *fptr;
+//     char data_buffer[5000]; // Increase buffer size to accommodate the entire file
+//     fptr = fopen("1hello.txt", "r");
+//     printf("===OPENING FILE!===\n");
+//     if (fptr != NULL) {
+//         while (fgets(data_buffer, sizeof(data_buffer), fptr) != NULL) {
+//             printf("%s", data_buffer); // Print each line
+//         }
+//         fclose(fptr);
+//     } else {
+//         printf("ERROR!\n");
+//     }
+//     return 0;
+// }
+
+// void usinggetc(){
+//     FILE *fptr;
+//     fptr = fopen("1hello.txt", "r");
+//     char c;
+//     printf("===Opening File!===\n");
+//     if (fptr != NULL)
+//     {
+//         while ((c = getc(fptr)) != EOF)
+//         {
+//             printf("%c",c);
+//         }
+//         printf("\n");
+//     }else{
+//         printf("ERROR!\n");
+//     }
+// }
+
+// void usingfprintf(){
+//     FILE *fptr;
+//     char name[]="Kaung Sett Hein";
+//     int account=101;
+//     double balance = 101.02;
+//     fptr=fopen("1hell.txt","w");
+//     if(fptr == NULL){
+//         printf("Something Wrong!");
+//     }
+//     else{
+//         fprintf(fptr,"%d %s %.2f\n",account,name,balance);
+//         fclose(fptr);
+//         printf("All processes are successful!\n");
+//     }
+// }
+
+// void fileCreateWithoutLoop(){
+//     FILE *fptr;
+//     fptr=fopen("1hello.txt","w+");
+//     if (fptr == NULL)
+//     {
+//         printf("Something Wrong!");
+//     }
+//     else{
+//         fputs("We are Myanmar crazy coder\n",fptr);
+//         fputs("It is more clear than fputc()\n",fptr);
+//         printf("All processes are successful!");
+//         fclose(fptr);
+//     }
+// }
+
+// void fileCreateWrite(){
+//     FILE *fptr;
+//     char str[]="We are Myanmar crazy coder\n";
+//     fptr=fopen("hello.txt","w");
+//     for (int i = 0; str[i] != '\n'; i++)
+//     {
+//         fputc(str[i],fptr);
+//     }
+//     fclose(fptr);
+// }
+
 //malloc(),calloc(),realloc(),free() 4 functions for memory allocation (type)alloctionfun(size) 
 //malloc() and calloc() are not that different but malloc() is better. *(pointer+index) = value; you can put value like this
 // realloc() is changing memory size with the existing pointer.
@@ -150,6 +245,17 @@ int main(void){
 //     {
 //         printf("%d value is %d\n",i,*(ptr+i));
 //     }
+//     free(ptr);
+// }
+
+// void memoryRealooc(){
+//     char *ptr;
+//     ptr = (char*)malloc(10);
+//     strcpy(ptr,"Programming");
+//     printf("%s ,address is %u",ptr,ptr);
+//     ptr = (char*)realloc(ptr,20);
+//     strcat(ptr," In 'C'");
+//     printf("\n%s ,address is %u",ptr,ptr);
 //     free(ptr);
 // }
 

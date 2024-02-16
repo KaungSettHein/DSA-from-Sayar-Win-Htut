@@ -1,0 +1,2 @@
+We are Myanmar crazy coder1
+It is more clear than fputc()
