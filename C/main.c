@@ -2,6 +2,10 @@
 #include<math.h>
 #include<stdlib.h>
 #include<time.h>
+#include<stdlib.h>
+#include<string.h>
+#define SIZE 5
+# define STUDENT 5
 enum colors {BLACK, BLUE, GREEN, CYAN, RED, YELLOW, WHITE};
 // void op();
 // void UnaryBinary();
@@ -26,12 +30,25 @@ enum colors {BLACK, BLUE, GREEN, CYAN, RED, YELLOW, WHITE};
 // int diceEnum();
 // float areaRectangel(float width, float height);
 // void autoStorageClass();
-void externStorageClass();
-
+// void externStorageClass();
+// void counter();
+// void TwoDArray();
+// void addAndExpandArray();
+// void memoryAlloc();
+// void memoryCalloc();
+// void memoryRealooc();
+// void fileCreateWrite();
+// void fileCreateWithoutLoop();
+// void usingfprintf();
+// void usinggetc();
+// int usingfgets();
+// void usingfscanf();
+// void usingfeofstdin();
+void usingStructure();
 
 // void somevalue(int *F); // pointer usage
 // int year = 2024; // if globle and local variable are same name value will be local value
-int globle = 24;
+// int globle = 24;
 
 int main(void){
     
@@ -56,12 +73,25 @@ int main(void){
     // compareTwoRand();
     // diceEnum();
     // autoStorageClass();
-    externStorageClass();
+    // externStorageClass();
+    // counter();
+    // TwoDArray();
+    // addAndExpandArray();
+    // memoryAlloc();
+    // memoryCalloc();
+    // memoryRealooc();
+    // fileCreateWrite();
+    // fileCreateWithoutLoop();
+    // usingfprintf();
+    // usinggetc();
+    // usingfgets();
+    // usingfscanf();
+    // usingfeofstdin();
+    usingStructure();
 
     // int number1,number2,number3,number4;
     // printf("Enter 4 digits:");
     // scanf("%d%d%d%d",&number1,&number2,&number3,&number4);
-
     // printf("The result is %d\n", calculate(number1,number2,number3,number4));
 
     // int age = 27;
@@ -72,7 +102,6 @@ int main(void){
     // scanf("%f",&width);
     // printf("Enter height of the rectangle:");
     // scanf("%f",&height);
-
     // printf("Area of Rectangle is %f\n",areaRectangel(width,height));
 
     // int A;
@@ -81,13 +110,329 @@ int main(void){
     // somevalue(&A);
     // printf("A(Actural parameter):%d",A);
 
+    // for (int i = 0; i < 5; i++)
+    // {
+    //     counter();
+    // }
+
     return 0;
 }
+struct Info
+{
+    char name[50];
+    int age;
+    char gender[7];
+    int rollNum;
+    int enrollYear;
+    struct DOB
+    {
+        int day;
+        int month;
+        int year;
+    } dateOfBirth;
+} studentInfo[STUDENT];
 
-void externStorageClass(){
-    globle = 33;
-    printf("globle value change from 24 to %d in this class\n",globle);
+void usingStructure(){
+    for (int i = 0; i < STUDENT ; i++)
+    {
+        studentInfo[i].rollNum = 1+rand()%49;
+        studentInfo[i].dateOfBirth.day = 1+rand()%31;
+        studentInfo[i].dateOfBirth.month = 1+rand()%12;
+        studentInfo[i].dateOfBirth.year =rand()%2010+1996;
+        studentInfo[i].enrollYear = studentInfo[i].dateOfBirth.year+5;
+        studentInfo[i].age = studentInfo[i].enrollYear - studentInfo[i].dateOfBirth.year;
+        printf("Please enter data for Roll number %d student.\n",studentInfo[i].rollNum);
+        printf("\nPlease Enter name:");
+        scanf("%49s",studentInfo[i].name);
+        printf("\nPlease Enter gender M/F:");
+        scanf("%6s",studentInfo[i].gender);
+        printf("\n******************************\n");
+    }
+    for (int i = 0; i < STUDENT; i++)
+    {
+        printf("Roll Number:%d\n",studentInfo[i].rollNum);
+        printf("Name:%s\n",studentInfo[i].name);
+        printf("Birthday is %d-%d-%d and %d year old.\n",studentInfo[i].dateOfBirth.day,studentInfo[i].dateOfBirth.month,studentInfo[i].dateOfBirth.year,studentInfo[i].age);
+        printf("Gender: %6s\n",studentInfo[i].gender);
+        printf("%s was enrolled to this school in %d.\n",studentInfo[i].name,studentInfo[i].enrollYear);
+        printf("________________________________________________\n");
+    }
 }
+
+// void usingfeofstdin(){
+//     FILE *fptr;
+//     unsigned int account;
+//     char name[30];
+//     int age;
+//     double balance;
+//     fptr = fopen("client.txt", "a");
+//      if (fptr != NULL) {
+//         printf("Enter AccountID, Name, age, balance:\n");
+//         printf("Enter EOF key (Press Ctrl+D on Linux or Ctrl+Z on Windows) to terminate.\n");
+//         printf(">");
+//         scanf("%d %29s %d %lf", &account, name, &age, &balance);
+//         while (!feof(stdin)) {
+//             fprintf(fptr,"Account:%d is called %s, %d old and have %.2lf amount.\n", account, name, age, balance);
+//             printf(">");
+//             scanf("%d %29s %d %lf", &account, name, &age, &balance);
+//         }
+//         fclose(fptr);
+//         printf("Data written to client.txt successfully.\n");
+//     } else {
+//         printf("Error opening the file for writing.\n");
+//     }
+// }
+// void usingfscanf(){
+//     FILE *fptr;
+//     char dataOne[50], dataTwo[60];
+//     fptr = fopen("1hello.txt","r");
+//     printf("===OPENING FILE!===\n");
+//     if(fptr != NULL){
+//         while (!feof(fptr))
+//         {
+//             fscanf(fptr,"%s %s",dataOne,dataTwo);
+//             printf("Reading string:%s\n",dataOne);
+//             printf("Reading string:%s\n",dataTwo);
+//         }
+//     }else{
+//         printf("ERROR!");
+//     }
+//     fclose(fptr);
+// }
+
+// int usingfgets(){
+//     FILE *fptr;
+//     char data_buffer[5000]; // Increase buffer size to accommodate the entire file
+//     fptr = fopen("1hello.txt", "r");
+//     printf("===OPENING FILE!===\n");
+//     if (fptr != NULL) {
+//         while (fgets(data_buffer, sizeof(data_buffer), fptr) != NULL) {
+//             printf("%s", data_buffer); // Print each line
+//         }
+//         fclose(fptr);
+//     } else {
+//         printf("ERROR!\n");
+//     }
+//     return 0;
+// }
+
+// void usinggetc(){
+//     FILE *fptr;
+//     fptr = fopen("1hello.txt", "r");
+//     char c;
+//     printf("===Opening File!===\n");
+//     if (fptr != NULL)
+//     {
+//         while ((c = getc(fptr)) != EOF)
+//         {
+//             printf("%c",c);
+//         }
+//         printf("\n");
+//     }else{
+//         printf("ERROR!\n");
+//     }
+// }
+
+// void usingfprintf(){
+//     FILE *fptr;
+//     char name[]="Kaung Sett Hein";
+//     int account=101;
+//     double balance = 101.02;
+//     fptr=fopen("1hell.txt","w");
+//     if(fptr == NULL){
+//         printf("Something Wrong!");
+//     }
+//     else{
+//         fprintf(fptr,"%d %s %.2f\n",account,name,balance);
+//         fclose(fptr);
+//         printf("All processes are successful!\n");
+//     }
+// }
+
+// void fileCreateWithoutLoop(){
+//     FILE *fptr;
+//     fptr=fopen("1hello.txt","w+");
+//     if (fptr == NULL)
+//     {
+//         printf("Something Wrong!");
+//     }
+//     else{
+//         fputs("We are Myanmar crazy coder\n",fptr);
+//         fputs("It is more clear than fputc()\n",fptr);
+//         printf("All processes are successful!");
+//         fclose(fptr);
+//     }
+// }
+
+// void fileCreateWrite(){
+//     FILE *fptr;
+//     char str[]="We are Myanmar crazy coder\n";
+//     fptr=fopen("hello.txt","w");
+//     for (int i = 0; str[i] != '\n'; i++)
+//     {
+//         fputc(str[i],fptr);
+//     }
+//     fclose(fptr);
+// }
+
+//malloc(),calloc(),realloc(),free() 4 functions for memory allocation (type)alloctionfun(size) 
+//malloc() and calloc() are not that different but malloc() is better. *(pointer+index) = value; you can put value like this
+// realloc() is changing memory size with the existing pointer.
+// free() is to clear the value used by those memory pointer.if you printf pointer value it will show the memory address.
+// void memoryCalloc(){
+//     int *ptr,sum=0;
+//     ptr = (int*)calloc(10,sizeof(*ptr));
+//     if (ptr!= NULL)
+//     {
+//         printf("memory is created at %d\n",ptr);
+//     }
+//     else{
+//         printf("cannnot create memory.\n");
+//     }
+//     for (int i = 0; i < 10; i++)
+//     {   
+//         *(ptr+i)=i;
+//         sum += *(ptr+i);
+//         printf("%d value is %d\n",i,*(ptr+i));
+//     }
+//     printf("Sum of all values at each block:%d\n",sum);
+//     free(ptr);
+// }
+
+// void memoryAlloc(){
+//     int *ptr;
+//     ptr = (int*)malloc(10 * sizeof(*ptr));
+//     if (ptr!= NULL)
+//     {
+//         printf("memory is created at %d\n",ptr);
+//         *(ptr+1)=10;
+//         *(ptr+3)=30;
+//         *(ptr+4)=40;
+//         *(ptr+5)=50;
+//         *(ptr+6)=60;
+//     }
+//     else{
+//         printf("cannnot create memory.\n");
+//     }
+//     for (int i = 0; i < 7; i++)
+//     {
+//         printf("%d value is %d\n",i,*(ptr+i));
+//     }
+//     free(ptr);
+// }
+
+// void memoryRealooc(){
+//     char *ptr;
+//     ptr = (char*)malloc(10);
+//     strcpy(ptr,"Programming");
+//     printf("%s ,address is %u",ptr,ptr);
+//     ptr = (char*)realloc(ptr,20);
+//     strcat(ptr," In 'C'");
+//     printf("\n%s ,address is %u",ptr,ptr);
+//     free(ptr);
+// }
+
+// void addAndExpandArray(){
+//     int valueNum,indexNum,number;
+//     printf("Enter array length:");
+//     scanf("%d",&number);
+//     int arr[number];
+//     for (int i = 0; i < number; i++)
+//     {
+//          printf("Enter array value for %d index:",i);
+//         scanf("%d",&arr[i]);
+//     }
+//     printf("Array data element are:");
+//     for (int i = 0; i < number; i++)
+//     {
+//         printf("%3d",arr[i]);
+//     }
+//     printf("\nEnter array value:");
+//     scanf("%d",&valueNum);
+//     printf("Enter array index:");
+//     scanf("%d",&indexNum);
+//     arr[indexNum] = valueNum;
+//     printf("Array after value change:");
+//     for (int i = 0; i < number; i++)
+//     {
+//         printf("%3d",arr[i]);
+//     }
+//     printf("\nDo you want to add one more value and array length?Y/N:");
+//     char ans;
+//     scanf("%s",&ans);
+//     if (ans == 'Y' || ans == 'y')
+//     {
+//         printf("Enter array value:");
+//         scanf("%d",&valueNum);
+//         printf("Enter array index:");
+//         scanf("%d",&indexNum);
+//        for (int i = number; i > indexNum; i--) // 4,3,2 > 2
+//             arr[i] = arr[i - 1];               // arr[4,3] = arr[3,2]
+//         }
+//         arr[indexNum] = valueNum;
+//         number++;
+//         printf("Array after value change:");
+//         for (int i = 0; i < number; i++)
+//         {
+//             printf("%3d",arr[i]);
+//         }
+//     }else
+//     {
+//         return 0;
+//     }
+//     printf("\n");
+// }
+
+// void TwoDArray(){
+//     int arr[] = { 10,11,12,13,14,15};
+//     int a[3][3]= { {1,2,3},{4,5,6},{7,8,9} } ;
+//     int row = 3;
+//     int col =3;
+//     for (int i = 0; i < 5; i++)
+//     {
+//         printf("this is arr %d\n",arr);
+//         printf("this is *arr %d\n",*arr);
+//         printf("this is *(arr+i) %d\n",*(arr+i));
+//         printf("this is *(i+arr) %d\n",*(i+arr));
+//         printf("this is arr[i] %d\n",arr[i]);
+//         printf("this is i[arr] %d\n",i[arr]);
+//         printf("%3d%3d%3d%3d%3d%3d\n",i[arr],arr[i],*(i+arr),*(arr+i),*arr,arr);
+//         printf("===========\n");
+//     }
+//     for (int i = 0; i < row; i++)
+//     {
+//         for (int j = 0; j < col; j++)
+//         {
+//             printf("%3d",a[i][j]);
+//         }
+//         printf("\n");
+//     }
+//     printf("===========\n");
+//     int b[3][2]= { {0,2},{0,5},{0,8} } ;
+//     int Ncol = 2;
+//     for (int i = 0; i < row; i++)
+//     {
+//         for (int j = 0; j < Ncol; j++)
+//         {
+//             printf("%3d",b[i][j]);
+//         }
+//         printf("\n");
+//     }    
+// }
+
+// void counter(){
+//     int counter = 0;
+//     static int staticCounter = 0;
+//     counter++;
+//     staticCounter++;
+//     printf("counter: %d\n",counter);
+//     printf("static counter: %d\n",staticCounter);
+// }
+
+// void externStorageClass(){
+//     globle = 33;
+//     printf("globle value change from 24 to %d in this class\n",globle);
+// }
 
 // void autoStorageClass(){ // auto storage class work like local variable
 //     auto valueOne = 20;
@@ -178,18 +523,15 @@ void externStorageClass(){
 
 // except Assginment, Conditional, Relational operator other operators have unary opertor and pinary operator
 // e.g. -a unary minus, b - a binary minus
-
 // void ArthmeticOp(){
 //     int a = 10;
 //     int b = 5;
 //     int x,y,z,i,j;
-
 //     x = a + b;
 //     y = a - b;
 //     z = a * b;
 //     i = a / b;
 //     j = a % b;
-
 //     printf("a and b addition is %d\n",x);
 //     printf("a and b subtraction is %d\n",y);
 //     printf("a and b multiplication is %d\n",z);
@@ -201,19 +543,15 @@ void externStorageClass(){
 // Sequence Structure is the code that work line by line as it write
 // Selection Structure is "if" "if else" "switch" condition
 // Iteration Structure is "while" "do while" "for" loop
-
 // Selection Structure "if"
-
 //  void ifStatment(){
 //     int first = 0;
 //     int sec = 0;
 //     int ttl = 0;
 //     printf("Please enter first number:");
 //     scanf("%d",&first);
-
 //     printf("Please enter second number:");
 //     scanf("%d",&sec);
-
 //     ttl = first+sec;
 //     if (ttl == 15)
 //     {
@@ -230,12 +568,10 @@ void externStorageClass(){
 //  }
 
 // Selection Structure "if else"
-
 // int ifElse(){
 //     int n1 = 0;
 //     printf("enter a number\n");
 //     scanf("%d",&n1);
-
 //     if (n1 > 5)
 //     {
 //         printf("your number is greater than 5\n");
@@ -251,7 +587,6 @@ void externStorageClass(){
     // I'm not writing switch statement
     // 3 loop also "while" "do while" "for"
     // and also not doing "&& || !"
-
 // There are 6 bitwise operator
     // "&" Bitwise AND
     // "|" Bitwise OR
@@ -259,18 +594,14 @@ void externStorageClass(){
     // "~" Bitwise complement
     // "<<" Shift left
     // ">>" Shift right
-
 // AND >> only 1&1 is 1 the rest is 0
 // OR >> if it is 1 ans is 1
 // XOR >> if it is same ans is 0 else ans 1
-
 // void bitwise(){
 //     int a = 12, b = 25;
 //     printf("Bitwise AND Output = %d\n",a&b);
-
 //     int x = 12, y = 25;
 //     printf("Bitwise OR Output = %d\n", x|y);
-
 //     int i = 12, j = 25;
 //     printf("Bitwise XOR Output = %d\n",x^y);
 // }
@@ -284,42 +615,31 @@ void externStorageClass(){
 // It is mostly use to find negative value in the form of binary format of the decimal digit.
 // It's based on usage. If you put 2's complement value to the calulator output will be something else.
 // We add negative sign(-) and operate on that value. That is all my understanding of the bitwise complement for now.
-
 // formula for the 2'complement is 
 // ~N = -(~(~N)+1)
 // ~N = -(N+1)
 // This is in the book I currently studying but the Bing AI state that the formula is ~N+1
-
 // void complement(){
 //     int x = 35, y = -35;
-    
 //     printf("1's complement of positive number is %d\n",~x);
 //     printf("1's complement of negative number is %d\n",~y);
-
 //     int P = -(~(~x)+1);
 //     int N = -(~(~y)+1);
 //     printf("2's complement of positive number is %d\n",P);
 //     printf("2's complement of negative number is %d\n",N);
-
 //     int aP = ~x+1;
 //     int aN = ~y+1;
 //     printf("2's complement of positive number is %d\n",aP);
 //     printf("2's complement of negative number is %d\n",aN);
-
 // }
 
-
 //For shift operator, Left shift is multiply the value x to 2^N. Right shift is divide the value of x to 2^N.
-
-
 // void ShiftOperator(){
 //     int x = 30;
-
 //     printf("Left shift by 1 bit (x*2) = %d\n\n",x<<1);
 //     printf("Left shift by 2 bit (x*2*2) = %d\n\n",x<<2);
 //     printf("Left shift by 3 bit (x*2*2*2) = %d\n\n",x<<3);
 //     printf("Left shift by 4 bit (x*2*2*2*2) = %d\n\n\n",x<<4);
-
 //     int y = 500;
 //     printf("Right shift by 1 bit (y/2) = %d\n\n",y>>1);
 //     printf("Right shift by 2 bit (y/2*2) = %d\n\n",y>>2);
@@ -333,17 +653,14 @@ void externStorageClass(){
 //     char opera;
 //     // bool check;
 //     double fNum, secNum;
-
 //     printf("Please enter Two Numbers:");
 //     scanf("%2lf %2lf", &fNum, &secNum);
 //     printf("Enter an operator (+,-,*,/):");
 //     scanf(" %c", &opera);
-
 //     // do
 //     // {
 //     //     printf("Enter an operator (+,-,*,/):");
 //     //     scanf(" %c", &opera);
-
 //     //     if(opera != '+' && opera != '-' && opera != '*' && opera != '/'){
 //     //         printf("\t\t\tERROR!\n\t\tOperator is not correct\n");
 //     //         check = true;      
@@ -351,9 +668,6 @@ void externStorageClass(){
 //     //         check = false;
 //     //     }
 //     // } while (check);
-
-    
-
 //     switch (opera)
 //     {
 //     case '+':
@@ -368,7 +682,6 @@ void externStorageClass(){
 //     case '/':
 //         printf("%.2lf / %2.lf = %.3lf\n",fNum, secNum, fNum / secNum);
 //         break;
-    
 //     default:
 //         printf("\t\t\tERROR!\n");
 //         break;
@@ -390,7 +703,6 @@ void externStorageClass(){
 //         sum += num;
 //     }
 //     printf("Sum = %d\n",sum);
-    
 // }
 
 // goto name <- go to the name code and stop working all the code below goto name
@@ -399,7 +711,6 @@ void externStorageClass(){
 //     int num;
 //     printf("Enter a number:");
 //     scanf("%d",&num);
-
 //     if ((num%2) == 0)
 //     {
 //         printf("This is even number.\n");
@@ -411,13 +722,10 @@ void externStorageClass(){
 // void vowelCheck(){
 //     char c;
 //     int smallVowel, bigVowel;
-
 //     printf("Please Enter a alphabet:");
 //     scanf("%c",&c);
-
 //     smallVowel = ( c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 //     bigVowel = ( c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
-
 //     if (smallVowel || bigVowel)
 //     {
 //         printf("%c is a vowel.\n",c);
@@ -428,7 +736,6 @@ void externStorageClass(){
 
 // void largestNum(){
 //     double first, second, third, fourth;
-
 //     printf("Enter first Number to compare:");
 //     scanf("%lf",&first); // if you use %f or %1f for double in scanf it will generate different value than you input, you should use %lf for float but in printf either is good.
 //     printf("Enter second Number to compare:");
@@ -437,7 +744,6 @@ void externStorageClass(){
 //     scanf("%lf",&third);
 //     printf("Enter fourth Number to compare:");
 //     scanf("%lf",&fourth);
-
 //     if ((first > second) && (first > third) && (first > fourth))
 //     {
 //         printf("%.2f is the largest number\n",first);
@@ -454,9 +760,7 @@ void externStorageClass(){
 //     {
 //         printf("%.2f is the largest number\n",fourth);
 //     }
-    
 // }
-
 
 // void quadratic(){
 //     double a,b,c;
@@ -481,7 +785,6 @@ void externStorageClass(){
 //         imaginaryPart = sqrt(-determinant)/(2*a);
 //         printf("root1 = %.2lf+%.2fi and root1 = %.2lf+%.2fi\n",realPart,imaginaryPart,realPart,imaginaryPart);
 //     }
-    
 // }
 
 //  void floydTri(){
@@ -496,8 +799,7 @@ void externStorageClass(){
 //             printf("%d",a);            
 //         }
 //         printf("\n");  
-//     }
-    
+//     } 
 // }
 
 // int randFrequentCount(){
@@ -509,24 +811,19 @@ void externStorageClass(){
 //         {
 //         case 1:
 //             ++oneTime;
-//             break;
-        
+//             break;       
 //         case 2:
 //             ++twoTime;
 //             break;
-
 //         case 3:
 //             ++threeTime;
 //             break;
-
 //         case 4:
 //             ++fourTime;
 //             break;
-
 //         case 5:
 //             ++fiveTime;
-//             break;        
-        
+//             break;               
 //         default:
 //             break;
 //         }
@@ -554,12 +851,10 @@ void externStorageClass(){
 //     int computerNo, humanNo;
 //     srand(time(NULL));
 //     computerNo = rand()%10+1;
-
 //     do
 //     {
 //         printf("Number 1-10:");
-//         scanf("%d",&humanNo);
-        
+//         scanf("%d",&humanNo);  
 //         if(computerNo<humanNo){
 //             puts("Computer number is lower");
 //         }else if (computerNo>humanNo)
@@ -568,15 +863,12 @@ void externStorageClass(){
 //         }
 //     } while (humanNo != computerNo);
 //     printf("They are the same value");
-
 //     return 0;
 // }
-
 
 // int diceEnum(){
 //     enum colors to_out;
 //     to_out = YELLOW;
-
 //     printf("this is it >> >> >> %5d\n", to_out);
 //     return 0;
 // }

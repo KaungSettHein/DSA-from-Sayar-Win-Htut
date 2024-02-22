@@ -2,10 +2,9 @@
 #include<math.h>
 #include<stdlib.h>
 #include<time.h>
-#include"main.c"
+#include"extern.h"
 
-int externFile(){
-    extern int globle;
+int externFile(){    
     printf("This is from other file value is %d\n",globle);
     return 0;
 }
