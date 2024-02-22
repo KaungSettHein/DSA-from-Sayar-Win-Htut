@@ -5,6 +5,7 @@
 #include<stdlib.h>
 #include<string.h>
 #define SIZE 5
+# define STUDENT 5
 enum colors {BLACK, BLUE, GREEN, CYAN, RED, YELLOW, WHITE};
 // void op();
 // void UnaryBinary();
@@ -41,7 +42,9 @@ enum colors {BLACK, BLUE, GREEN, CYAN, RED, YELLOW, WHITE};
 // void usingfprintf();
 // void usinggetc();
 // int usingfgets();
-void usingfscanf();
+// void usingfscanf();
+// void usingfeofstdin();
+void usingStructure();
 
 // void somevalue(int *F); // pointer usage
 // int year = 2024; // if globle and local variable are same name value will be local value
@@ -82,7 +85,9 @@ int main(void){
     // usingfprintf();
     // usinggetc();
     // usingfgets();
-    usingfscanf();
+    // usingfscanf();
+    // usingfeofstdin();
+    usingStructure();
 
     // int number1,number2,number3,number4;
     // printf("Enter 4 digits:");
@@ -112,20 +117,88 @@ int main(void){
 
     return 0;
 }
-void usingfscanf(){
-    FILE *fptr;
-    char dataOne[50], dataTwo[60];
-    fptr = fopen("1hello.txt","r");
-    printf("===OPENING FILE!===\n");
-    if(fptr != NULL){
-        fscanf(fptr,"%s %s",dataOne,dataTwo);
-        printf("Reading string:%s\n",dataOne);
-        printf("Reading string:%s\n",dataTwo);
-    }else{
-        printf("ERROR!");
+struct Info
+{
+    char name[50];
+    int age;
+    char gender[7];
+    int rollNum;
+    int enrollYear;
+    struct DOB
+    {
+        int day;
+        int month;
+        int year;
+    } dateOfBirth;
+} studentInfo[STUDENT];
+
+void usingStructure(){
+    for (int i = 0; i < STUDENT ; i++)
+    {
+        studentInfo[i].rollNum = 1+rand()%49;
+        studentInfo[i].dateOfBirth.day = 1+rand()%31;
+        studentInfo[i].dateOfBirth.month = 1+rand()%12;
+        studentInfo[i].dateOfBirth.year =rand()%2010+1996;
+        studentInfo[i].enrollYear = studentInfo[i].dateOfBirth.year+5;
+        studentInfo[i].age = studentInfo[i].enrollYear - studentInfo[i].dateOfBirth.year;
+        printf("Please enter data for Roll number %d student.\n",studentInfo[i].rollNum);
+        printf("\nPlease Enter name:");
+        scanf("%49s",studentInfo[i].name);
+        printf("\nPlease Enter gender M/F:");
+        scanf("%6s",studentInfo[i].gender);
+        printf("\n******************************\n");
     }
-    fclose(fptr);
+    for (int i = 0; i < STUDENT; i++)
+    {
+        printf("Roll Number:%d\n",studentInfo[i].rollNum);
+        printf("Name:%s\n",studentInfo[i].name);
+        printf("Birthday is %d-%d-%d and %d year old.\n",studentInfo[i].dateOfBirth.day,studentInfo[i].dateOfBirth.month,studentInfo[i].dateOfBirth.year,studentInfo[i].age);
+        printf("Gender: %6s\n",studentInfo[i].gender);
+        printf("%s was enrolled to this school in %d.\n",studentInfo[i].name,studentInfo[i].enrollYear);
+        printf("________________________________________________\n");
+    }
 }
+
+// void usingfeofstdin(){
+//     FILE *fptr;
+//     unsigned int account;
+//     char name[30];
+//     int age;
+//     double balance;
+//     fptr = fopen("client.txt", "a");
+//      if (fptr != NULL) {
+//         printf("Enter AccountID, Name, age, balance:\n");
+//         printf("Enter EOF key (Press Ctrl+D on Linux or Ctrl+Z on Windows) to terminate.\n");
+//         printf(">");
+//         scanf("%d %29s %d %lf", &account, name, &age, &balance);
+//         while (!feof(stdin)) {
+//             fprintf(fptr,"Account:%d is called %s, %d old and have %.2lf amount.\n", account, name, age, balance);
+//             printf(">");
+//             scanf("%d %29s %d %lf", &account, name, &age, &balance);
+//         }
+//         fclose(fptr);
+//         printf("Data written to client.txt successfully.\n");
+//     } else {
+//         printf("Error opening the file for writing.\n");
+//     }
+// }
+// void usingfscanf(){
+//     FILE *fptr;
+//     char dataOne[50], dataTwo[60];
+//     fptr = fopen("1hello.txt","r");
+//     printf("===OPENING FILE!===\n");
+//     if(fptr != NULL){
+//         while (!feof(fptr))
+//         {
+//             fscanf(fptr,"%s %s",dataOne,dataTwo);
+//             printf("Reading string:%s\n",dataOne);
+//             printf("Reading string:%s\n",dataTwo);
+//         }
+//     }else{
+//         printf("ERROR!");
+//     }
+//     fclose(fptr);
+// }
 
 // int usingfgets(){
 //     FILE *fptr;
@@ -450,7 +523,6 @@ void usingfscanf(){
 
 // except Assginment, Conditional, Relational operator other operators have unary opertor and pinary operator
 // e.g. -a unary minus, b - a binary minus
-
 // void ArthmeticOp(){
 //     int a = 10;
 //     int b = 5;
@@ -472,7 +544,6 @@ void usingfscanf(){
 // Selection Structure is "if" "if else" "switch" condition
 // Iteration Structure is "while" "do while" "for" loop
 // Selection Structure "if"
-
 //  void ifStatment(){
 //     int first = 0;
 //     int sec = 0;
@@ -497,7 +568,6 @@ void usingfscanf(){
 //  }
 
 // Selection Structure "if else"
-
 // int ifElse(){
 //     int n1 = 0;
 //     printf("enter a number\n");
@@ -517,7 +587,6 @@ void usingfscanf(){
     // I'm not writing switch statement
     // 3 loop also "while" "do while" "for"
     // and also not doing "&& || !"
-
 // There are 6 bitwise operator
     // "&" Bitwise AND
     // "|" Bitwise OR
@@ -525,11 +594,9 @@ void usingfscanf(){
     // "~" Bitwise complement
     // "<<" Shift left
     // ">>" Shift right
-
 // AND >> only 1&1 is 1 the rest is 0
 // OR >> if it is 1 ans is 1
 // XOR >> if it is same ans is 0 else ans 1
-
 // void bitwise(){
 //     int a = 12, b = 25;
 //     printf("Bitwise AND Output = %d\n",a&b);
@@ -548,12 +615,10 @@ void usingfscanf(){
 // It is mostly use to find negative value in the form of binary format of the decimal digit.
 // It's based on usage. If you put 2's complement value to the calulator output will be something else.
 // We add negative sign(-) and operate on that value. That is all my understanding of the bitwise complement for now.
-
 // formula for the 2'complement is 
 // ~N = -(~(~N)+1)
 // ~N = -(N+1)
 // This is in the book I currently studying but the Bing AI state that the formula is ~N+1
-
 // void complement(){
 //     int x = 35, y = -35;
 //     printf("1's complement of positive number is %d\n",~x);
@@ -568,9 +633,7 @@ void usingfscanf(){
 //     printf("2's complement of negative number is %d\n",aN);
 // }
 
-
 //For shift operator, Left shift is multiply the value x to 2^N. Right shift is divide the value of x to 2^N.
-
 // void ShiftOperator(){
 //     int x = 30;
 //     printf("Left shift by 1 bit (x*2) = %d\n\n",x<<1);
