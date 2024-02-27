@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "random": "c"
-    }
+        "random": "c",
+        "iostream": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "enabled"
 }
